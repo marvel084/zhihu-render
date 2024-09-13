@@ -1,2 +1,2 @@
-*.py linguist-language=JavaScript
+*.py linguist-detectable=false
 
