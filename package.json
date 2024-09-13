@@ -11,24 +11,14 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/cheerio": "^0.22.17",
-    "ali-oss": "^6.5.1",
-    "Base64": "^1.1.0",
-    "cheerio": "^1.0.0-rc.3",
-    "crypto": "^1.0.1",
-    "form-urlencoded": "^4.1.1",
+    "@types/node": "^22.5.4",
+    "fs": "^0.0.1-security",
     "markdown-it": "^12.3.2",
     "markdown-it-katex": "^2.0.3",
     "markdown-it-meta": "^0.0.1",
     "markdown-it-table-of-contents": "^0.8.0",
     "markdown-it-zhihu-common": "^1.3.1",
-    "md5": "^2.2.1",
-    "on-change": "^1.6.2",
-    "pug": "^2.0.4",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
-    "tough-cookie": "^3.0.1",
-    "tough-cookie-filestore": "^0.0.1",
-    "zhihu-encrypt": "^1.0.0"
+    "path": "^0.12.7",
+    "yargs": "^17.7.2"
   }
 }

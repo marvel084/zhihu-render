@@ -1,6 +1,6 @@
 "use strict";
 /*
-    zhuhu_render moonhikari 2024/09/13
+    zhihu_render moonhikari 2024/09/13
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 var MarkdownIt = require("markdown-it");
