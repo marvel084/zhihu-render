@@ -27,7 +27,10 @@
 
 不过由于图片可能上传失败，建议不使用此功能，有需要可在知乎编辑器中开启卡片。
 
-[![zhihu-link-card:测试连接卡片](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/marvel084/zhihu-render)
+[![zhihu-link-card:含图片](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/marvel084/zhihu-render)
+
+[![zhihu-link-card:无图片]()](https://github.com/marvel084/zhihu-render)
+
 
 
 ### 测试01：标题

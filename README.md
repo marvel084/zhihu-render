@@ -4,7 +4,9 @@
 
 2024年7月起，知乎API无法再请求到登录二维码图片，[VSCode-Zhihu](https://github.com/niudai/VSCode-Zhihu)、[WPL-s](https://github.com/jks-liu/WPL-s)等插件均无法登录。本仓库利用[jks-liu/markdown-it-zhihu-common](https://github.com/jks-liu/markdown-it-zhihu-common#readme)等包，提供了一种将Markdown渲染为知乎支持的HTML，可供直接在网页版知乎编辑器上传的方式。非规范编程，仅供应急使用。
 
-格式支持即为`markdown-it-zhihu-common`所支持，`markdown-it-zhihu-common`支持公式、Emoji、表格、任务列表、参考文献（知乎注释）、链接卡片。Markdown语法示例见[jks-liu的示例](https://github.com/jks-liu/zhihu/blob/master/WPLs-introduction-and-test.md)，以及[结果](https://zhuanlan.zhihu.com/p/390528313)。
+格式支持即为`markdown-it-zhihu-common`所支持，`markdown-it-zhihu-common`支持公式、Emoji、表格、任务列表、参考文献（知乎注释）、链接卡片。
+
+Markdown语法示例见[zhihu-render/test.md](https://github.com/marvel084/zhihu-render/blob/main/test.md)，渲染后[zhihu-render/test_zhihu.md](https://github.com/marvel084/zhihu-render/blob/main/test_zhihu.md)，效果可见[知乎文章](https://zhuanlan.zhihu.com/p/719814080)。（参考自[jks-liu的示例](https://github.com/jks-liu/zhihu/blob/master/WPLs-introduction-and-test.md)、[结果](https://zhuanlan.zhihu.com/p/390528313)）
 
 实现相同功能的有[drmingdrmer/md2zhihu](https://github.com/drmingdrmer/md2zhihu)项目，不过其无法处理知乎脚注（注释）。
 
