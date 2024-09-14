@@ -10,7 +10,7 @@
 
 ## 安装使用
 
-需安装[node.js](https://nodejs.org/zh-cn)环境，下载本仓库，在本仓库根目录下安装依赖：
+**开发版：** 需安装[node.js](https://nodejs.org/zh-cn)环境，下载本仓库，在本仓库根目录下安装依赖：
 
 ```bash
 npm install
@@ -20,6 +20,12 @@ npm install
 
 ```bash
 node zhihu_render.js test.md
+```
+
+**Release版：** 去Release页面下载对应平台的二进制程序，直接执行：
+
+```bash
+zhihu_render test.md
 ```
 
 将会生成HTML格式的`test_zhihu.md`，可直接在网页版知乎编辑器的“文档导入”中上传。
