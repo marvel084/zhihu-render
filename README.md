@@ -1,6 +1,6 @@
 > 包含AI生成的代码片段
 
-# Zhihu-Render脚本：Markdown渲染为知乎支持的HTML
+# Markdown渲染为HTML支持知乎编辑器上传的脚本
 
 2024年7月起，知乎API无法再请求到登录二维码图片，[VSCode-Zhihu](https://github.com/niudai/VSCode-Zhihu)、[WPL-s](https://github.com/jks-liu/WPL-s)等插件均无法登录。本仓库利用[jks-liu/markdown-it-zhihu-common](https://github.com/jks-liu/markdown-it-zhihu-common#readme)等包，提供了一种将Markdown渲染为知乎支持的HTML，可供直接在网页版知乎编辑器上传的方式。非规范编程，仅供应急使用。
 
