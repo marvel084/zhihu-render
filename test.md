@@ -2,72 +2,22 @@
 
 # 这是文章题目
 
-## 第一章
+本文为脚本测试文档：[marvel084/zhihu-render](https://github.com/marvel084/zhihu-render)
 
-WPL/s 是一个在 VS Code 中发布知乎文章/回答的插件。在 VS Code 中搜索 `zhihu` ，安装即可，如下图。虽然目前排在最后一个:cry:。
+## 支持的功能
 
-| Markdown基础功能 | 支持与否 |
-| :--- | :--- |
-| 章节标题 | :heavy_check_mark: *1 |
-| 分割线 | :heavy_check_mark: |
-| 引用 | :heavy_check_mark: |
-| 链接 | :heavy_check_mark: *8 |
-| 图片 | :heavy_check_mark: *6 |
-| 表格 | :heavy_check_mark: *2 |
-| 公式 | :heavy_check_mark: |
-| 代码块 | :heavy_check_mark: |
-| 加粗 | :heavy_check_mark: |
-| 斜体 | :heavy_check_mark: |
-| 加粗斜体嵌套 | :heavy_check_mark: |
-| 删除线 | :x: *3 |
-| 列表 | :heavy_check_mark: |
-| 参考文献 | :heavy_check_mark: *4 |
-
-| 其它特色功能 | 支持与否 |
-| :--- | :--- |
-| 元数据 | :heavy_check_mark: *4 |
-| 目录 | :x: *0 |
-| 章节标题自动编号 | :x: *0 |
-| Emoji表情 | :heavy_check_mark: *5 |
-| 任务列表 | :heavy_check_mark: |
-
-
-| 知乎特色功能 | 支持与否 |
-| --- | --- |
-| 标题 | :heavy_check_mark: *7 |
-| 回答问题 | :heavy_check_mark: |
-| 发布文章 | :heavy_check_mark: |
-| 题图 | :heavy_check_mark: *7 |
-| 链接卡片 | :heavy_check_mark: *4 |
-| 视频 | :x: |
-| 好物推荐 | :x: |
-| 附件 | :x: |
-| 标签 | :heavy_check_mark: *7 |
-| 草稿 | :heavy_check_mark:|
-| 赞赏 | :x: |
-| 追更 | :x: |
-
-（0）打算近期支持，star，点赞，收藏，一键三连给我动力呀
-
-1. 最多可支持 4 级标题
-2. 表格暂时不支持对齐
-3. 知乎本身不支持，请大家踊跃向[知乎小管家](https://www.zhihu.com/people/zhihuadmin)提建议
-4. 格式见下一小节
-5. 支持大部分Emoji（很多emoji刚发的时候可以看到，但一段时间过后就会被知乎过滤掉），具体列表请查看上面的链接。
-6. - 同时支持本地图片和网络链接（暂时不支持 SVG 格式）,二维码会被知乎过滤掉
-7. 在元数据中指定
-8. 不支持为图片设置连接
-
-
+- Markdown基础功能 ：章节标题、分割线、引用、链接、图片、表格、**公式**、代码块、加粗、斜体、删除线、有序列表、无序列表
+- `markdown-it-zhihu-common`中追加的功能：任务列表、Emoji支持
+- 支持知乎特色功能：脚注（知乎注释）、链接卡片
+- 本脚本能够完成的特殊功能：渲染时提升标题等级
+- 使用外部程序完成的功能：章节自动编号
 
 ## 以下是各个功能的测试
 
-## 插件特色功能
+### 测试-1：题图
+题图请自己在知乎编辑器中上传
 
-### 测试01：题图
-如支持，应该可以在标题上面看到清明上河图。
-
-### 链接卡片
+### 测试0：链接卡片
 
 ```md
 [![zhihu-link-card:本项目 GitHub 主页](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/jks-liu/WPL-s)
@@ -77,12 +27,12 @@ WPL/s 是一个在 VS Code 中发布知乎文章/回答的插件。在 VS Code �
 
 不过由于图片可能上传失败，建议不使用此功能，有需要可在知乎编辑器中开启卡片。
 
-[![zhihu-link-card:本项目 GitHub 主页](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/jks-liu/WPL-s)
+[![zhihu-link-card:测试连接卡片](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/marvel084/zhihu-render)
 
 
-## Markdown功能测试
+### 测试01：标题
 
-### 测试01：六级标题
+知乎最多可支持 4 级标题，不过知乎编辑器中只支持两级标题，不过考虑到更小标题渲染均一致，只是标签都变成`<h2>`，若不生成目录，也不妨使用。以往使用VSCode插件发布文章后，若再用知乎编辑器编辑文章，或启用目录，或添加标签，则小标题会全变成2级。
 
 #### 三级标题
 ##### 四级标题
@@ -103,7 +53,7 @@ WPL/s 是一个在 VS Code 中发布知乎文章/回答的插件。在 VS Code �
 >
 
 ### 测试04：链接
-[本项目 GitHub 链接](https://github.com/jks-liu/WPL-s)
+[jks-liu/WPL-s的链接](https://github.com/jks-liu/WPL-s)
 
 #### 图片链接
 [![本项目 GitHub 主页](http://142.171.17.85:9001/tmp_zhihu/20240910/image-20240907234154879.png)](https://github.com/jks-liu/WPL-s)
@@ -111,18 +61,20 @@ WPL/s 是一个在 VS Code 中发布知乎文章/回答的插件。在 VS Code �
 #### [标题链接](https://github.com/jks-liu/WPL-s)
 
 ### 测试05：图片
-SVG 格式暂不支持
+SVG 格式暂不支持。
+
+Markdown文档中图片请预先替换成外链，知乎对图床也有限制：GitHub图床无法使用，反代到GitHub的均不可以；国内的部分网站不可以；国外纯IP站反倒可以；
 
 <!-- ![本地 JPG 图片](pics/Along-the-River-During-the-Qingming-Festival.jpg)
 `![本地 SVG 图片](pics/emission9.svg)` -->
 
-![网络 PNG 图片](http://142.171.17.85:9001/tmp_zhihu/20240912/IMG_0096.JPG)
+![国外纯IP站图片 行](http://142.171.17.85:9001/tmp_zhihu/20240912/IMG_0096.JPG)
 
 ![jsdeliver代gitgub 不行](https://cdn.jsdelivr.net/gh/marvel084/pics/img/202409100103257.png)
 
-![行1](https://gitee.com/drdrxp/bed/raw/_md2zhihu_foo/simple/18b61671112f3aeb-slim.jpg)
+![国内gitee站 行](https://gitee.com/drdrxp/bed/raw/_md2zhihu_foo/simple/18b61671112f3aeb-slim.jpg)
 
-![北京政府gov上图 不行](https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/zxzt/mcbhdjt/yjnr/202106/W020210624519529895414.png)
+![北京政府gov网站图 有时候不行](https://ghzrzyw.beijing.gov.cn/zhengwuxinxi/zxzt/mcbhdjt/yjnr/202106/W020210624519529895414.png)
 
 <!-- `![网络 SVG 图片](https://www.w3school.com.cn/svg/circle1.svg)` -->
 
@@ -133,6 +85,7 @@ SVG 格式暂不支持
 | 一 | 二 | 三 |
 | 二一 | 二二 | 二三 |
 
+知乎表格暂时不支持对齐。
 
 ### 测试07：公式
 行内公式：$\alpha = \beta$，$亿=爱慕*四一^{平方}$
@@ -177,7 +130,6 @@ print("Hello, World!")
     - [x] 嵌套已完成的任务
 
 ### 测试12：参考文献
-
 ```md
 用[^n]来引用。
 
@@ -186,8 +138,8 @@ print("Hello, World!")
 
 注意字符 ^ 不能少。冒号后面有一个空格。网址中不能有空格。网址和说明文字之间有一个空格，说明文字自己可以有空格。
 
-- 这里[^first]你可以找到本文的Markdown原文；
-- 这个[^second]也是原文，但没有说明文字；
+- 这里[^first]测试脚注，url中含有非法字符；
+- 这个[^second]无说明文字的脚注；
 - 重复第一个[^first].
 
 ### 测试13： :congratulations: Emoji表情
