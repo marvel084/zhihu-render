@@ -8,6 +8,7 @@ var markdown_it_zhihu_common_1 = require("markdown-it-zhihu-common");
 var fs = require("fs");
 var path = require("path");
 var yargs = require("yargs");
+var md_html_util_1 = require("./md-html-util");
 var argv = yargs
     .option('image', {
     alias: 'i',
@@ -38,6 +39,12 @@ if (argv.image) {
         return "![".concat(alt, "](").concat(src, ")");
     };
 }
+zhihuMdParser.renderer.rules.math_inline = function (tokens, idx) {
+    return "<img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\">";
+};
+zhihuMdParser.renderer.rules.math_block = function (tokens, idx) {
+    return "<p><img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\"></p>";
+};
 if (argv.heading) {
     /* 标题提升一级 */
     var bgIndex = //题图Index，本文不使用
