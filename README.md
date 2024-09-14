@@ -10,7 +10,17 @@
 
 ## 安装使用
 
-**开发版：** 需安装[node.js](https://nodejs.org/zh-cn)环境，下载本仓库，在本仓库根目录下安装依赖：
+- **Release版：** 
+
+去Release页面下载对应平台的二进制程序，直接执行：
+
+```bash
+zhihu_render test.md
+```
+
+- **开发版：** 
+
+需安装[node.js](https://nodejs.org/zh-cn)环境，下载本仓库，在本仓库根目录下安装依赖：
 
 ```bash
 npm install
@@ -22,15 +32,9 @@ npm install
 node zhihu_render.js test.md
 ```
 
-**Release版：** 去Release页面下载对应平台的二进制程序，直接执行：
-
-```bash
-zhihu_render test.md
-```
-
 将会生成HTML格式的`test_zhihu.md`，可直接在网页版知乎编辑器的“文档导入”中上传。
 
-缺点：
+**本脚本缺点：**
 
 - 知乎编辑器只保留两级标题，其余不可见。
 - 链接卡片中的图片可能不可见，有需要还是在知乎编辑器手动开启链接卡片吧
