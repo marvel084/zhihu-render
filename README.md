@@ -47,7 +47,7 @@ node zhihu_render.js test.md
 
 本脚本提供以下参数：
 
-- `--image`，`-i`：图片保留markdown格式
+- `--image`，`-i`：图片渲染为`<img>`供知乎编辑器上传
 - `--heading`，`-h`：HTML中去除一级标题，其余标题增加一级（`h2->h1, h3->h2`）
 - `--equrl`，`-e`：公式渲染为知乎支持的`<img>`（2020年风格）
 
@@ -60,9 +60,6 @@ node zhihu_render.js test.md -ihe
 [VSCode-Zhihu](https://github.com/niudai/VSCode-Zhihu)风格为`#`作为文章标题，其余标题全升一级，本脚本支持这种方式。
 
 `markdown-zhihu-common`渲染成的公式图片似乎并不被知乎支持，因此重写成与[ZhihuFormulaConvert](https://github.com/pluveto/ZhihuFormulaConvert)项目一致的格式
-
-
-
 
 
 ### 标题自动编号的工作流
