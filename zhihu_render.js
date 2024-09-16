@@ -24,6 +24,13 @@ var argv = yargs
     // demandOption: false,
     default: false
 })
+    .option('equrl', {
+    alias: 'e',
+    description: 'Equation render 2020 Zhihu style URL',
+    type: 'boolean',
+    // demandOption: false,
+    default: false
+})
     .argv;
 var input_file = argv._[0];
 var zhihuMdParser = new MarkdownIt({ html: true }).use(markdown_it_zhihu_common_1.default);
@@ -36,15 +43,19 @@ if (argv.image) {
         var token = tokens[idx];
         var alt = token.content;
         var src = token.attrs[token.attrIndex('src')][1];
-        return "![".concat(alt, "](").concat(src, ")");
+        // return `![${alt}](${src}) `;
+        return "<img src=\"".concat(src, "\" alt=\"").concat(alt, "\" />");
     };
 }
-zhihuMdParser.renderer.rules.math_inline = function (tokens, idx) {
-    return "<img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\">";
-};
-zhihuMdParser.renderer.rules.math_block = function (tokens, idx) {
-    return "<p><img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\"></p>";
-};
+if (argv.equrl) {
+    /* 重写公式渲染成知乎支持的URL，与 https://github.com/pluveto/ZhihuFormulaConvert 一致*/
+    zhihuMdParser.renderer.rules.math_inline = function (tokens, idx) {
+        return "<img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\">";
+    };
+    zhihuMdParser.renderer.rules.math_block = function (tokens, idx) {
+        return "<p><img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\"></p>";
+    };
+}
 if (argv.heading) {
     /* 标题提升一级 */
     var bgIndex = //题图Index，本文不使用

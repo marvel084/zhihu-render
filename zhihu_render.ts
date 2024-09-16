@@ -49,7 +49,8 @@ if (argv.image){
         const token = tokens[idx];
         const alt = token.content;
         const src = token.attrs[token.attrIndex('src')][1];
-        return `![${alt}](${src})`;
+        // return `![${alt}](${src}) `;
+        return `<img src="${src}" alt="${alt}" />`;
     };
 }
 
