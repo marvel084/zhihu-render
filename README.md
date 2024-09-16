@@ -36,10 +36,17 @@ node zhihu_render.js test.md
 
 将会生成HTML格式的`test_zhihu.md`，可直接在网页版知乎编辑器的“文档导入”中上传。
 
-**本脚本缺点：**
 
-- 知乎编辑器只保留两级标题，其余不可见。
-- 链接卡片中的图片可能不可见，有需要还是在知乎编辑器手动开启链接卡片吧
+
+> [!WARNING]
+>
+> **本脚本缺点：**
+>
+> - 知乎编辑器只保留两级标题，其余不可见。
+> - 链接卡片中的图片可能不可见，有需要还是在知乎编辑器手动开启链接卡片吧
+
+
+
 
 
 
@@ -47,7 +54,7 @@ node zhihu_render.js test.md
 
 本脚本提供以下参数：
 
-- `--image`，`-i`：图片保留markdown格式
+- `--image`，`-i`：图片渲染为`<img>`供知乎编辑器上传
 - `--heading`，`-h`：HTML中去除一级标题，其余标题增加一级（`h2->h1, h3->h2`）
 - `--equrl`，`-e`：公式渲染为知乎支持的`<img>`（2020年风格）
 
@@ -60,9 +67,6 @@ node zhihu_render.js test.md -ihe
 [VSCode-Zhihu](https://github.com/niudai/VSCode-Zhihu)风格为`#`作为文章标题，其余标题全升一级，本脚本支持这种方式。
 
 `markdown-zhihu-common`渲染成的公式图片似乎并不被知乎支持，因此重写成与[ZhihuFormulaConvert](https://github.com/pluveto/ZhihuFormulaConvert)项目一致的格式
-
-
-
 
 
 ### 标题自动编号的工作流
