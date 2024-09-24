@@ -74,9 +74,9 @@ node zhihu_render.js test.md -h --noimg --noeq
 `markdown-zhihu-common`渲染成的公式图片似乎并不被知乎支持，因此重写成与[ZhihuFormulaConvert](https://github.com/pluveto/ZhihuFormulaConvert)项目一致的格式
 
 
-### 标题自动编号的工作流
+## 番外：标题自动编号的工作流
 
-#### 方案一：使用外部脚本给md标题编号
+### 方案一：使用外部脚本给md标题编号
 
 外部脚本添加章节编号，js渲染时标题升一级。可用本仓库包含的Python脚本，[pythontools/AddTitleNumber.py](https://github.com/frone/pythontools/blob/master/AddTitleNumber.py)（二级起编），另有一级起编的[脚本](https://blog.csdn.net/u012443641/article/details/126440876)。
 
@@ -95,7 +95,7 @@ node zhihu_render.js test_withNum.md -h
 
 
 
-#### 方案二：pandoc标题自动编号
+### 方案二：pandoc标题自动编号
 
 pandoc控制标题升级和加编号，之后交给js脚本渲染
 
