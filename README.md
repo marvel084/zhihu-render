@@ -37,7 +37,6 @@ node zhihu_render.js test.md
 将会生成HTML格式的`test_zhihu.md`，可直接在网页版知乎编辑器的“文档导入”中上传。
 
 
-
 > [!WARNING]
 >
 > **本脚本缺点：**
@@ -46,25 +45,31 @@ node zhihu_render.js test.md
 > - 链接卡片中的图片可能不可见，有需要还是在知乎编辑器手动开启链接卡片吧
 
 
+## 功能开关
 
+脚本默认支持：
 
+- 图片保留`<img>`标签供知乎编辑器上传
+- 公式渲染为知乎支持的`<img>`（与[ZhihuFormulaConvert](https://github.com/pluveto/ZhihuFormulaConvert)项目格式一致）
 
+额外功能使用以下参数开启或关闭：
 
-## 脚本使用
-
-本脚本提供以下参数：
-
-- `--image`，`-i`：图片渲染为`<img>`供知乎编辑器上传
-- `--heading`，`-h`：HTML中去除一级标题，其余标题增加一级（`h2->h1, h3->h2`）
-- `--equrl`，`-e`：公式渲染为知乎支持的`<img>`（2020年风格）
+- `--heading`，`-h`：**启用**HTML中去除一级标题，其余标题增加一级（`h2->h1, h3->h2`）
+- `--noimg`：**不将**图片渲染为`<img>`，改由`markdown-it-zhihu-common`控制
+- `--noeq`：**不将**公式渲染为知乎支持的`<img>`，改由`markdown-it-zhihu-common`控制
 
 ```bash
-node zhihu_render.js test.md -ihe
+node zhihu_render.js test.md -h --noimg --noeq
 ```
 
-知乎编辑器中上传的md不支持本地图片，支持外链但有限制（不支持GitHub图床，支持部分国内网站，支持国外纯IP站），因此可保留md格式图片以供上传。使用本脚本前请将文中图片替换为知乎支持的外链。
-
 [VSCode-Zhihu](https://github.com/niudai/VSCode-Zhihu)风格为`#`作为文章标题，其余标题全升一级，本脚本支持这种方式。
+
+知乎编辑器中上传的md不支持本地图片，支持外链但有限制（不支持GitHub图床，支持部分国内网站，支持国外纯IP站），因此可保留md格式图片以供上传。
+
+> [!NOTE]
+>
+> 使用前请确保文档中没有本地图片，图片全改为知乎支持的外链
+
 
 `markdown-zhihu-common`渲染成的公式图片似乎并不被知乎支持，因此重写成与[ZhihuFormulaConvert](https://github.com/pluveto/ZhihuFormulaConvert)项目一致的格式
 
