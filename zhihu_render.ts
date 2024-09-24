@@ -12,9 +12,9 @@ import {escapeHtml} from './md-html-util'
 import {unescapeMd} from './md-html-util'
 
 const argv = yargs
-    .option('image', {
-        alias: 'i',
-        description: 'Keep markdown image grammar',
+    .option('noimg', {
+        // alias: 'i',
+        description: 'Do not Keep markdown image grammar',
         type: 'boolean',
         // demandOption: false,
         default: false
@@ -26,9 +26,9 @@ const argv = yargs
         // demandOption: false,
         default: false
     })
-    .option('equrl', {
-        alias: 'e',
-        description: 'Equation render 2020 Zhihu style URL',
+    .option('noeq', {
+        // alias: 'e',
+        description: 'Do not render Equations to 2020 Zhihu style URL',
         type: 'boolean',
         // demandOption: false,
         default: false
@@ -43,7 +43,7 @@ let tokens = zhihuMdParser.parse(MdStr, {});
 
 /* =====================================以下为调整功能================================= */
 
-if (argv.image){
+if (argv.noimg){}else{
     /* 图片保留markdown格式 */
     zhihuMdParser.renderer.rules.image = function (tokens, idx, options, env, self) {
         const token = tokens[idx];
@@ -54,7 +54,7 @@ if (argv.image){
     };
 }
 
-if (argv.equrl){
+if (argv.noeq){}else{
     /* 重写公式渲染成知乎支持的URL，与 https://github.com/pluveto/ZhihuFormulaConvert 一致*/
     zhihuMdParser.renderer.rules.math_inline = (tokens, idx) => {
         return `<img src="https://www.zhihu.com/equation?tex=` + encodeURI(tokens[idx].content) + `" alt="[公式]" eeimg="1" data-formula="`+ escapeHtml(tokens[idx].content) + `">`;

@@ -10,9 +10,9 @@ var path = require("path");
 var yargs = require("yargs");
 var md_html_util_1 = require("./md-html-util");
 var argv = yargs
-    .option('image', {
-    alias: 'i',
-    description: 'Keep markdown image grammar',
+    .option('noimg', {
+    // alias: 'i',
+    description: 'Do not Keep markdown image grammar',
     type: 'boolean',
     // demandOption: false,
     default: false
@@ -24,9 +24,9 @@ var argv = yargs
     // demandOption: false,
     default: false
 })
-    .option('equrl', {
-    alias: 'e',
-    description: 'Equation render 2020 Zhihu style URL',
+    .option('noeq', {
+    // alias: 'e',
+    description: 'Do not render Equations to 2020 Zhihu style URL',
     type: 'boolean',
     // demandOption: false,
     default: false
@@ -37,7 +37,8 @@ var zhihuMdParser = new MarkdownIt({ html: true }).use(markdown_it_zhihu_common_
 var MdStr = fs.readFileSync(input_file, 'utf8');
 var tokens = zhihuMdParser.parse(MdStr, {});
 /* =====================================以下为调整功能================================= */
-if (argv.image) {
+if (argv.noimg) { }
+else {
     /* 图片保留markdown格式 */
     zhihuMdParser.renderer.rules.image = function (tokens, idx, options, env, self) {
         var token = tokens[idx];
@@ -47,7 +48,8 @@ if (argv.image) {
         return "<img src=\"".concat(src, "\" alt=\"").concat(alt, "\" />");
     };
 }
-if (argv.equrl) {
+if (argv.noeq) { }
+else {
     /* 重写公式渲染成知乎支持的URL，与 https://github.com/pluveto/ZhihuFormulaConvert 一致*/
     zhihuMdParser.renderer.rules.math_inline = function (tokens, idx) {
         return "<img src=\"https://www.zhihu.com/equation?tex=" + encodeURI(tokens[idx].content) + "\" alt=\"[\u516C\u5F0F]\" eeimg=\"1\" data-formula=\"" + (0, md_html_util_1.escapeHtml)(tokens[idx].content) + "\">";
